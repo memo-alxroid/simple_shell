@@ -13,11 +13,13 @@ void execute_command(char **commandWithArguments)
 {
 	char *commandName = NULL;
 
-	if (commandWithArguments != NULL)
+	if (commandWithArguments)
 	{
 		commandName = commandWithArguments[0];
-		printf("commandName: %s\n", commandName);
-		printf("commandWithArguments[0]: %s\n", commandWithArguments[0]);
-		printf("commandWithArguments[1]: %s\n", commandWithArguments[1]);
+
+		if((execve(commandName, commandWithArguments, NULL)) == -1)
+		{
+			perror("Erorr:");
+		};
 	}
 }

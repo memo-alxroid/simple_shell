@@ -13,7 +13,7 @@ char **get_arguments_array( char ** inputStringCopy, char **word, int numberOfWo
 	*word = strtok(*inputStringCopy, " ");
 
         for (i = 0; *word != NULL; i++){
-            inputArrayString[i] = malloc(sizeof(char) * strlen(*word));
+            inputArrayString[i] = malloc(sizeof(char) * (strlen(*word) + 1));
 	    if (inputArrayString[i] == NULL)
 	    {
 		    free(inputArrayString);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error in Number of arguments \n");
 	}
 
-	while (2)
+	while (1)
 	{
 		printf("#cisfun$ ");
 		numberOfCharcters = get_input_string(&inputString, inputStringLength);
@@ -64,8 +64,10 @@ int main(int argc, char *argv[])
 				free(inputArrayString);
 				return (-1);
 			}
+			inputArrayString[1] = "-l";
 			execute_command(inputArrayString);
 		}
 	}
+	free(inputStringCopy);
 	return (0);
 }

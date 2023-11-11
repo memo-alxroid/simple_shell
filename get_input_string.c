@@ -14,13 +14,17 @@
 
 ssize_t get_input_string(char **inputString, size_t inputStringLength)
 {
-	ssize_t numberOfCharcters = 0;
-	numberOfCharcters = getline(&(*inputString), &inputStringLength, stdin);
-	if (numberOfCharcters == -1)
+	ssize_t numberOfCharacters = 0;
+
+	*inputString = NULL;
+	inputStringLength = 0;
+
+	numberOfCharacters = getline(&(*inputString), &inputStringLength, stdin);
+	if (numberOfCharacters == -1)
 	{
 		dprintf(2, "\nError in getline Function\n");
 		return (-1);
 	}
-	return (numberOfCharcters);
+	return (numberOfCharacters);
 }
 

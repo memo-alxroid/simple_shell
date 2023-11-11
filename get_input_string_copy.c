@@ -12,15 +12,15 @@
 char *copy_input_string(char **inputString)
 {
 	char *inputStringCopy;
-	int stringLen = 0;
+	size_t stringLen = 0;
 
 	stringLen = strlen(*inputString);
 
-	inputStringCopy = malloc(sizeof(char) * stringLen);
+	inputStringCopy = malloc(sizeof(char) * (stringLen + 1));
 	if (inputStringCopy == NULL)
 	{
 		return (NULL);
 	}
-	inputStringCopy = strcpy(inputStringCopy, *inputString);
+	strcpy(inputStringCopy, *inputString);
 	return (inputStringCopy);
 }
