@@ -16,10 +16,8 @@ void execute_command(char **commandWithArguments)
 	if (commandWithArguments != NULL)
 	{
 		commandName = commandWithArguments[0];
-
-		if (execve(commandName, commandWithArguments, NULL) == -1)
-		{
-			printf("execve failed\n");
-		};
+		printf("commandName: %s\n", commandName);
+		printf("commandWithArguments[0]: %s\n", commandWithArguments[0]);
+		printf("commandWithArguments[1]: %s\n", commandWithArguments[1]);
 	}
 }
