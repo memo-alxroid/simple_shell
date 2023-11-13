@@ -11,11 +11,12 @@
  */
 
 
-int get_number_of_words(char **word, char **inputString)
+int get_number_of_words(char *inputString, char **word)
 {
 	int numberOfWords = 0;
 
-	*word = strtok(*inputString, " ");
+
+	*word = strtok(inputString, " \n");
 
 	while (*word != NULL)
 	{
@@ -23,7 +24,6 @@ int get_number_of_words(char **word, char **inputString)
 		*word = strtok(NULL, " ");
 	}
 	return (numberOfWords);
-
 }
 
 

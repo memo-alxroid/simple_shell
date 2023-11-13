@@ -9,14 +9,11 @@
  *
  */
 
-char *copy_input_string(char **inputString)
+char *copy_input_string(char **inputString, ssize_t numberOfCharacters)
 {
 	char *inputStringCopy;
-	size_t stringLen = 0;
 
-	stringLen = strlen(*inputString);
-
-	inputStringCopy = malloc(sizeof(char) * (stringLen + 1));
+	inputStringCopy = malloc(sizeof(char) * numberOfCharacters);
 	if (inputStringCopy == NULL)
 	{
 		return (NULL);

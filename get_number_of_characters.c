@@ -1,10 +1,10 @@
 #include "main.h"
 
 /*
- * get_input_string - gets the input from the user input
- *
- * @inputString: the string that will contain the input
- * @inputStringLength: the length of the input string
+ * get_number_of_characters_read - reads the user input
+ * and return number of characters read
+ * 
+ *@inputString: the string to be read
  *
  * Return: the number of charachters read
  *
@@ -12,12 +12,10 @@
 
 
 
-ssize_t get_input_string(char **inputString, size_t inputStringLength)
+ssize_t get_number_of_characters_read(char **inputString)
 {
 	ssize_t numberOfCharacters = 0;
-
-	*inputString = NULL;
-	inputStringLength = 0;
+	size_t inputStringLength = 0;
 
 	numberOfCharacters = getline(&(*inputString), &inputStringLength, stdin);
 	if (numberOfCharacters == -1)
