@@ -11,13 +11,14 @@
 
 void execute_command(char **commandWithArguments)
 {
-	char *commandName = NULL;
+	char *commandName = NULL, *commandPath = NULL;
 
 	if (commandWithArguments)
 	{
 		commandName = commandWithArguments[0];
+		commandPath = get_command_path(commandName);
 
-		if((execve(commandName, commandWithArguments, NULL)) == -1)
+		if((execve(commandPath, commandWithArguments, NULL)) == -1)
 		{
 			perror("Erorr:");
 		};

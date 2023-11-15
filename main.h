@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <unistd.h>
 #include <math.h>
 
@@ -14,5 +16,8 @@ void execute_command(char **commandWithArguments);
 char **extract_commands_array();
 char **split_input_into_words(char *inputString, char *inputStringCopy);
 char **store_words_in_array(char *inputStringCopy, char **word, int numberOfWords);
+char *get_command_path(char *command);
+char *generate_command_path(char *pathEnviromentVariableToken, char*command, char**commandFullPath);
+int check_if_path_exist(char *path, struct stat buffer);
 
 #endif
